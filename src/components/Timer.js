@@ -2,19 +2,27 @@ import React, { useState } from "react";
 
 export default function Timer(){
   const [count, setCount]  = useState(0);
+  const [timeId, setTimeId] = useState()
+  const [pauses, setPauses] = useState([]);
   
   const start = () =>{
-     setInterval(() => {
+     let a = setInterval(() => {
       setCount((prevCount)=>prevCount+1);
      }, 1000);
+     setTimeId(a)
  }
 
  const Reset = () =>{
   setCount(0);
+  clearInterval(timeId)
  }
 
  const Pause = () =>{
-  
+  clearInterval(timeId);
+  setPauses((prevPauses) => [
+    ...prevPauses,
+    { pauseNumber: prevPauses.length + 1, pauseCount: count }
+  ]);
  }
 
   return(
@@ -25,6 +33,25 @@ export default function Timer(){
            <button type="button" className="btn btn-success" onClick={Pause}>Pause</button>
            <button type="button" className="btn btn-warning" onClick={Reset}>Reset</button>
           </div> 
+
+         {pauses.length > 0 && (
+          <table className="table mt-3">
+            <thead>
+              <tr>
+                <th>Pause Number</th>
+                <th>Pause Count</th>
+              </tr>
+            </thead>
+            <tbody>
+              {pauses.map((pause) => (
+                <tr>
+                  <td>Pause {pause.pauseNumber}</td>
+                  <td>{pause.pauseCount}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+         )}
         </div>
     );
 }
