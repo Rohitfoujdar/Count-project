@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import './App.css';
-// import Timer from './components/Timer';
+import Timer from './components/Timer';
 import Count from './components/Count'
 import Button from './components/Button';
 
@@ -9,9 +9,9 @@ function App() {
 
   return (
     <div>
-      {/* <Timer/> */}
-      <Count count={count} setCount={setCount}/>
-      <Button count={count} setCount={setCount}/>
+      <Timer/>
+      {/* <Count count={count} setCount={setCount}/>
+      <Button count={count} setCount={setCount}/> */}
     </div>
   );
 }
