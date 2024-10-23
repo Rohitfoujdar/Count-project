@@ -9,9 +9,9 @@ function App() {
 
   return (
     <div>
-      <Timer/>
-      {/* <Count count={count} setCount={setCount}/>
-      <Button count={count} setCount={setCount}/> */}
+      {/* <Timer/> */}
+      <Count count={count} setCount={setCount}/>
+      <Button count={count} setCount={setCount}/>
     </div>
   );
 }
