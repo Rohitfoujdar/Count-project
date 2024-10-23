@@ -27,9 +27,8 @@ export default function Button({count, setCount}){
       clearInterval(timerId)
       setPauses((prevPauses) => [...prevPauses, {pauseNumber: prevPauses.length + 1, pauseCount: count}
       ]);
-
-      }
-
+    }
+    
     
     return(
      <div className="container">
